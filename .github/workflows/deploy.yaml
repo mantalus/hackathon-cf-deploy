@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -39,7 +39,7 @@ jobs:
         #   username: ${{ inputs.username }}
         
       - name: Deploy
-        run: ansible-playbook ansible/deploy.yaml
+        run: ansible-playbook ./ansible/deploy.yaml
         env:
           cf_template: ${{ inputs.cf_template }}
           parameter_file: ${{ inputs.parameter_file }}
