@@ -34,6 +34,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: mantalus/hackathon-cf-deploy
+          path: hackathon-cf-deploy
 
       - name: Get-Caller-Identity
         run: aws sts get-caller-identity
@@ -43,7 +44,7 @@ jobs:
         run: ls -la 
 
       - name: Deploy
-        run: ansible-playbook ./ansible/deploy.yaml
+        run: ansible-playbook ./hackathon-cf-deploy/ansible/deploy.yaml
         env:
           cf_template: ${{ inputs.cf_template }}
           parameter_file: ${{ inputs.parameter_file }}
