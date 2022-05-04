@@ -1,0 +1,21 @@
+---
+- set_fact:
+    filepath: "{{ lookup('env', 'parameter_file') }}"
+
+- set_fact:
+    parameters: "{{ lookup('template', filepath )|from_yaml }}"
+
+
+- debug:
+    msg: "{{ parameters }}"
+
+- name: create a cloudformation stack
+  cloudformation:
+    stack_name: "ansible-cloudformation"
+    state: "present"
+    region: "ap-southeast-2"
+    disable_rollback: true
+    template: "{{ lookup('env', 'cf_template') }}"
+    template_parameters: "{{ parameters }}"
+    tags:
+      Stack: "ansible-cloudformation"

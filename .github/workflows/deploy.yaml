@@ -35,4 +35,4 @@ jobs:
         # env:
         #   username: ${{ inputs.username }}
       - name: get Ansible version
-        run: ansible --version
+        run: a
