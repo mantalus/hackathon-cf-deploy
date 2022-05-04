@@ -30,6 +30,11 @@ jobs:
           role-to-assume: arn:aws:iam::196234228256:role/github-oidc-GithubRole-16NEK0G8R0TNW
           aws-region: ap-southeast-2
 
+      - name: Checkout private tools
+        uses: actions/checkout@v3
+        with:
+          repository: mantalus/hackathon-cf-deploy
+
       - name: Get-Caller-Identity
         run: aws sts get-caller-identity
         # env:
