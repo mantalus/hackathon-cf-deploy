@@ -34,3 +34,5 @@ jobs:
         run: aws sts get-caller-identity
         # env:
         #   username: ${{ inputs.username }}
+      - name: get Ansible version
+        run: ansible --version
