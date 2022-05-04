@@ -37,6 +37,8 @@ jobs:
         run: aws sts get-caller-identity
         # env:
         #   username: ${{ inputs.username }}
+      - name: Listing
+        run: ls -la
         
       - name: Deploy
         run: ansible-playbook ./ansible/deploy.yaml
