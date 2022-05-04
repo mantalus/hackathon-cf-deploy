@@ -35,7 +35,7 @@ jobs:
         # env:
         #   username: ${{ inputs.username }}
       - name: Listing
-        run: ls -la ${GITHUB_WORKSPACE}/*
+        run: ls -la 
 
       - name: Deploy
         run: ansible-playbook ./ansible/deploy.yaml
