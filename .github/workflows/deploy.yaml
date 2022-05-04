@@ -16,11 +16,11 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-    - name: Configure AWS credentials from Test account
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        role-to-assume: arn:aws:iam::036762315531:oidc-provider/token.actions.githubusercontent.com
-        aws-region: ap-southeast-2
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::036762315531:oidc-provider/token.actions.githubusercontent.com
+          aws-region: ap-southeast-2
 
       - name: Get-Caller-Identity
         run: aws sts caller-identity
