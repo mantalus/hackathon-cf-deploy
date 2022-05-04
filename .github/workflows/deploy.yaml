@@ -22,7 +22,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-      
+
     steps:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
@@ -31,6 +31,6 @@ jobs:
           aws-region: ap-southeast-2
 
       - name: Get-Caller-Identity
-        run: aws sts caller-identity
+        run: aws sts get-caller-identity
         # env:
         #   username: ${{ inputs.username }}
