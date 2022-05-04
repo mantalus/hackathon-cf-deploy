@@ -34,5 +34,11 @@ jobs:
         run: aws sts get-caller-identity
         # env:
         #   username: ${{ inputs.username }}
-      - name: get Ansible version
-        run: a
+        
+      - name: Deploy
+        run: ansible-playbook ansible/deploy.yaml
+        env:
+          cf_template: ${{ inputs.cf_template }}
+          parameter_file: ${{ inputs.parameter_file }}
+
+        
